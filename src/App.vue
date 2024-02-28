@@ -1,26 +1,56 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="hold-transition sidebar-mini layout-fixed">
+    <h1 class="card-title">Dashboard</h1>
+    <div class="wrapper">
+      <div class="content-wrapper">
+        <div class="content">
+          <DatePicker />
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-4">
+                <ChartContainer />
+              </div>
+              <div class="col-lg-4">
+                <ColumnChartContainer
+                  chart-title="Free Member This Year"
+                  column-chart-id="revenue-chart-column"
+                />
+              </div>
+              <div class="col-lg-4">
+                <DonutChartContainer />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3">
+                <TableContainer table-title="Free Member By Section" />
+              </div>
+              <div class="col-lg-9">
+                <TableSectionContainer table-title="Free Member In Jan 2024" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import DatePicker from "@/components/DatePicker.vue";
+import ChartContainer from "@/components/ChartContainer.vue";
+import TableContainer from "@/components/TableContainer.vue";
+import TableSectionContainer from "@/components/TableSectionContainer.vue";
+import ColumnChartContainer from "@/components/ColumnChartContainer.vue";
+import DonutChartContainer from "@/components/DonutChartContainer.vue";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    DatePicker,
+    ChartContainer,
+    TableContainer,
+    ColumnChartContainer,
+    DonutChartContainer,
+    TableSectionContainer
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
